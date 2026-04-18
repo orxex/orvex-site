@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORVEX | Inovação e Performance</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800;900&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons para as redes sociais -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- GSAP para animações de entrada premium -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Spline 3D Viewer (Web Component) -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.64/build/spline-viewer.js"></script>
+</head>
+<body>
+
+    <section class="hero">
+        <!-- Logo Top Left -->
+        <div class="top-logo">
+            <img src="cropped-logo.png" alt="Logo ORVEX" class="logo-icon-small">
+        </div>
+
+        <!-- Conteúdo Principal Esquerda -->
+        <div class="hero-content">
+            <div class="brand-row anim-main">
+                <div class="logo-large">
+                    <img src="cropped-logo.png" alt="Logo ORVEX" class="logo-icon-image">
+                </div>
+                <h1 class="brand-name">ORVEX</h1>
+            </div>
+            
+            <p class="brand-tagline anim-main">Onde inovação encontra performance.</p>
+        </div>
+
+        <!-- Ícones Sociais (Bottom Left) -->
+        <div class="social-links">
+            <a href="https://wa.me/5515997492384" target="_blank" aria-label="WhatsApp" class="anim-social"><i class="ph ph-whatsapp-logo"></i></a>
+            <a href="#" aria-label="Instagram" class="anim-social"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" aria-label="X" class="anim-social"><i class="ph ph-x-logo"></i></a>
+        </div>
+
+        <!-- Spline 3D Area (Right) -->
+        <div class="spline-container anim-spline" style="pointer-events: none;">
+            <spline-viewer url="https://prod.spline.design/WbdchWKXqraO0ap3/scene.splinecode" style="transform: translateZ(0);"></spline-viewer>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="services-header">
+                <h2 class="services-title">Soluções que elevam sua presença digital</h2>
+                <p class="services-subtitle">Design, tecnologia e estratégia para destacar sua marca no digital.</p>
+                <div class="services-divider"></div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ph ph-browsers"></i>
+                    </div>
+                    <h3 class="service-card-title">Criação de Sites</h3>
+                    <p class="service-card-description">Sites modernos, rápidos e pensados para converter visitantes em clientes.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ph ph-paint-brush-broad"></i>
+                    </div>
+                    <h3 class="service-card-title">Design Premium</h3>
+                    <p class="service-card-description">Interfaces elegantes que transmitem valor e profissionalismo.</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ph ph-network"></i>
+                    </div>
+                    <h3 class="service-card-title">Experiência Digital</h3>
+                    <p class="service-card-description">Projetos interativos que aumentam engajamento e retenção.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2 — EXPERIÊNCIA INTERATIVA (SPLINE) -->
+    <section class="xp-section" id="experience-1">
+
+        <!-- Glow ambiente -->
+        <div class="xp-glow" aria-hidden="true"></div>
+
+        <div class="xp-inner">
+
+            <!-- ── LADO ESQUERDO ── -->
+            <div class="xp-left">
+
+                <div class="xp-eyebrow">
+                    <span class="xp-dot"></span>
+                    Design &amp; Tecnologia
+                </div>
+
+                <h2 class="xp-title">
+                    <span class="xp-title-line xp-line-white">Experiências que</span>
+                    <span class="xp-title-line xp-line-muted">impressionam.</span>
+                </h2>
+
+                <p class="xp-subtitle">
+                    Design e tecnologia trabalhando juntos para criar algo<br>
+                    único e inesquecível para sua marca.
+                </p>
+
+                <a href="#projects" class="xp-cta" id="xp-cta-btn">
+                    <span>Explorar projetos</span>
+                    <i class="ph ph-arrow-right xp-cta-icon"></i>
+                </a>
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3 — PROJETOS CONCEITUAIS -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header anim-reveal">
+                <h2 class="section-title">Nossa Visão em <span>Design</span></h2>
+                <p class="section-subtitle">Projetos conceituais que transcendem o básico, combinando luxo, vanguarda estética e performance.</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Projeto 1: Destaque Grande -->
+                <a href="#" class="project-card project-large anim-reveal" aria-label="Ver projeto Terra Cotta">
+                    <div class="project-bg">
+                        <img src="concept_architecture.png" alt="Terra Cotta - Modern Architecture">
+                    </div>
+                    <div class="project-overlay"></div>
+                    <div class="project-content">
+                        <div class="project-top">
+                            <span class="project-tag">Concept Project</span>
+                        </div>
+                        <div class="project-bottom">
+
+                            <div class="project-btn-wrapper">
+                                <span class="project-btn">Ver projeto <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Projeto 2: Menor Secundário -->
+                <a href="#" class="project-card project-small anim-reveal" aria-label="Ver projeto Europa Wine">
+                    <div class="project-bg">
+                        <img src="concept_wine.png" alt="Europa Wine - Premium E-commerce">
+                    </div>
+                    <div class="project-overlay"></div>
+                    <div class="project-content">
+                        <div class="project-top">
+                            <span class="project-tag">UI Exploration</span>
+                        </div>
+                        <div class="project-bottom">
+
+                            <div class="project-btn-wrapper">
+                                <span class="project-btn">Ver projeto <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Projeto 3: Menor Terciário -->
+                <a href="#" class="project-card project-small anim-reveal" aria-label="Ver projeto Lumier Dark">
+                    <div class="project-bg">
+                        <img src="concept_lamp.png" alt="Lumier Dark - Product Landing Page">
+                    </div>
+                    <div class="project-overlay"></div>
+                    <div class="project-content">
+                        <div class="project-top">
+                            <span class="project-tag">Concept Project</span>
+                        </div>
+                        <div class="project-bottom">
+
+                            <div class="project-btn-wrapper">
+                                <span class="project-btn">Ver projeto <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4 — DIFERENCIAIS -->
+    <section class="features" id="why-us">
+        <div class="container">
+            <div class="section-header anim-reveal">
+                <h2 class="section-title">Por que escolher a ORVEX?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item anim-reveal">
+                    <i class="ph ph-swatches"></i>
+                    <h3>Design que impressiona</h3>
+                    <p>Visual sofisticado para marcas de alto nível.</p>
+                </div>
+                <div class="feature-item anim-reveal">
+                    <i class="ph ph-zap"></i>
+                    <h3>Performance otimizada</h3>
+                    <p>Velocidade e estabilidade em cada projeto.</p>
+                </div>
+                <div class="feature-item anim-reveal">
+                    <i class="ph ph-chart-line-up"></i>
+                    <h3>Foco em resultados</h3>
+                    <p>Estratégias pensadas para conversão real.</p>
+                </div>
+                <div class="feature-item anim-reveal">
+                    <i class="ph ph-crown"></i>
+                    <h3>Experiência premium</h3>
+                    <p>Cuidado em cada pixel da jornada digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5 — PROCESSO -->
+    <section class="process" id="how-it-works">
+        <div class="container">
+            <div class="section-header anim-reveal">
+                <h2 class="section-title">Como trabalhamos</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-line"></div>
+                <div class="process-line-active" id="process-line-active"></div>
+
+                <div class="step anim-reveal" data-step="1" id="step-1" role="button" tabindex="0" aria-label="Etapa 01 — Entendimento">
+                    <div class="step-number">01</div>
+                    <h4>Entendimento</h4>
+                </div>
+                <div class="step anim-reveal" data-step="2" id="step-2" role="button" tabindex="0" aria-label="Etapa 02 — Planejamento">
+                    <div class="step-number">02</div>
+                    <h4>Planejamento</h4>
+                </div>
+                <div class="step anim-reveal" data-step="3" id="step-3" role="button" tabindex="0" aria-label="Etapa 03 — Criação">
+                    <div class="step-number">03</div>
+                    <h4>Criação</h4>
+                </div>
+                <div class="step anim-reveal" data-step="4" id="step-4" role="button" tabindex="0" aria-label="Etapa 04 — Entrega">
+                    <div class="step-number">04</div>
+                    <h4>Entrega</h4>
+                </div>
+            </div>
+
+            <!-- Painel de Conteúdo Dinâmico -->
+            <div class="process-panel" id="process-panel" aria-live="polite">
+                <div class="process-panel-inner" id="process-panel-inner">
+                    <div class="panel-step-tag" id="panel-step-tag">01</div>
+                    <div class="panel-text-group">
+                        <h3 class="panel-title" id="panel-title"></h3>
+                        <p class="panel-description" id="panel-description"></p>
+                    </div>
+                    <div class="panel-icon" id="panel-icon">
+                        <i class="ph" id="panel-icon-el"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 6 — SEGUNDA EXPERIÊNCIA SPLINE -->
+    <section class="interactive-experience interactive-experience-reverse" id="experience-2">
+        <div class="split-container">
+            <div class="spline-side anim-reveal">
+                <div class="spline-wrapper" id="spline-container-2" style="position:relative;">
+                    <iframe
+                        src="https://my.spline.design/robotarm-qtRdcEV6VaeDtXNzKLIQSPP8/"
+                        frameborder="0"
+                        allow="autoplay"
+                        style="width:100%;height:100%;position:absolute;top:0;left:0;border:none;display:block;">
+                    </iframe>
+                </div>
+            </div>
+            <div class="text-side anim-reveal">
+                <h2 class="section-title">Inovação em cada <span>detalhe</span></h2>
+                <p class="section-subtitle">Criamos experiências digitais interativas que vão além do comum, conectando sua marca ao futuro.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 7 — CTA FINAL -->
+    <section class="cta-final" id="contact">
+        <div class="container anim-reveal">
+            <h2 class="cta-title">Vamos tirar sua ideia do papel?</h2>
+            <p class="cta-subtitle">Fale conosco e comece seu projeto premium hoje mesmo.</p>
+            <a href="https://wa.me/5515997492384" target="_blank" class="btn-premium">Solicitar orçamento</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="cropped-logo.png" alt="Logo ORVEX" class="logo-footer">
+                <span class="footer-text">ORVEX &copy; 2026</span>
+            </div>
+            <div class="footer-links">
+                <a href="#hero">Início</a>
+                <a href="#services">Serviços</a>
+                <a href="#projects">Projetos</a>
+                <a href="#contact">Contato</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://wa.me/5515997492384" target="_blank" class="ph ph-whatsapp-logo" aria-label="WhatsApp"></a>
+                <a href="#" class="ph ph-instagram-logo"></a>
+                <a href="#" class="ph ph-x-logo"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

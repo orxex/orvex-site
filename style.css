@@ -1,0 +1,1169 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000000; 
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Layout Principal */
+.hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elementos da Esquerda (Posição Absoluta) */
+.top-logo {
+    position: absolute;
+    top: 6vh;
+    left: 6vw;
+    z-index: 10;
+    opacity: 0; 
+}
+
+.logo-icon-small {
+    width: 32px;
+    height: 32px;
+}
+
+.social-links {
+    position: absolute;
+    bottom: 6vh;
+    left: 6vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 10;
+}
+
+.social-links a {
+    color: #666666;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; 
+}
+
+.social-links a:hover {
+    color: #ffffff;
+    transform: scale(1.15);
+}
+
+/* Conteúdo Central/Esquerdo */
+.hero-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+    padding-left: 8vw;
+    pointer-events: none; /* Permite interagir com o Spline por baixo do container vazio */
+}
+
+.hero-content > * {
+    pointer-events: auto; /* Devolve a interatividade aos elementos de texto */
+}
+
+/* Linha contendo Logo + ORVEX */
+.brand-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw; 
+    margin-bottom: 2rem; 
+}
+
+.logo-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon-image {
+    width: clamp(70px, 8vw, 130px);
+    height: auto;
+    object-fit: contain;
+}
+
+/* Título ORVEX */
+.brand-name {
+    font-size: clamp(3.5rem, 7vw, 8rem);
+    font-weight: 800; 
+    letter-spacing: -0.01em;
+    line-height: 0.9;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* Subtítulo: Fica abaixo da imagem inteira, alinhado à esquerda do logo */
+.brand-tagline {
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(0.9rem, 1.3vw, 1.6rem); 
+    color: #c4c4c4; 
+    margin: 0;
+    margin-left: 0.3vw; /* Ajuste finíssimo ótico com o D da imagem */
+    font-weight: 400; 
+    opacity: 0;
+}
+
+/* Área Direita (Spline 3D) */
+.spline-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: radial-gradient(circle at 70% center, rgba(30, 30, 30, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+    opacity: 0;
+    overflow: hidden; /* Garante que o corte da parte inferior funcione */
+}
+
+.spline-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #444; 
+    padding: 3rem;
+    border-radius: 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    text-align: center;
+}
+
+.placeholder-content i {
+    font-size: 3rem;
+    color: #666;
+}
+
+.placeholder-content span {
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.placeholder-instruction {
+    font-size: 0.8rem;
+    max-width: 250px;
+    color: #555;
+}
+
+spline-viewer {
+    width: 100% !important;
+    height: calc(100% + 60px) !important; /* Aumenta a altura para empurrar o logo para fora */
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    margin-bottom: -60px;
+}
+
+/* Seção de Serviços */
+.services {
+    width: 100%;
+    padding: 12vh 8vw;
+    background-color: #000000;
+    position: relative;
+    z-index: 10;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 800px;
+}
+
+.services-title {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.services-subtitle {
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    color: #888888;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.services-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.service-card {
+    background-color: #111111;
+    border: 1px solid #222222;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: default;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.service-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #444444;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.service-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.service-card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #888888;
+}
+
+/* Media Queries */
+/* Seções Globais */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 8vw;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.section-title span {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.section-subtitle {
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    color: #888888;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════
+   SEÇÃO 2 — EXPERIÊNCIA (XP) — ULTRA PREMIUM
+══════════════════════════════════════════════ */
+.xp-section {
+    width: 100%;
+    padding: 18vh 0;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Glow ambiente radial — quase imperceptível */
+.xp-glow {
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(ellipse at center,
+        rgba(255, 255, 255, 0.028) 0%,
+        transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Layout Centralizado: Apenas Texto */
+.xp-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── CONTEÚDO ── */
+.xp-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 900px; /* Limita a largura para leitura elegante */
+}
+
+/* Eyebrow */
+.xp-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #3a3a3a;
+    margin-bottom: 2.4rem;
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.xp-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333;
+    flex-shrink: 0;
+}
+
+/* Título em duas linhas com cores distintas - AGORA MAIOR E CENTRALIZADO */
+.xp-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1em;
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 2.5rem;
+}
+
+.xp-title-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.xp-line-white { color: #ffffff; }
+.xp-line-muted { color: #444; }
+
+/* Subtítulo - CENTRALIZADO */
+.xp-subtitle {
+    font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+    color: #666;
+    line-height: 1.7;
+    font-weight: 400;
+    margin-bottom: 4rem;
+    max-width: 650px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(14px);
+}
+
+/* CTA discreto - CENTRALIZADO */
+.xp-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    border: 1px solid #222;
+    border-radius: 50px;
+    color: #888;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    align-self: center;
+    transition:
+        border-color 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease;
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.xp-cta:hover {
+    border-color: #444;
+    color: #ccc;
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.055);
+}
+
+.xp-cta-icon {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.xp-cta:hover .xp-cta-icon {
+    transform: translateX(3px);
+}
+
+/* ── RESPONSIVO ── */
+@media (max-width: 1000px) {
+    .xp-title {
+        font-size: clamp(2.4rem, 9vw, 3.5rem);
+    }
+}
+
+/* ── SEÇÃO 6 — SEGUNDA EXPERIÊNCIA SPLINE (mantida) ── */
+.interactive-experience-reverse {
+    width: 100%;
+    padding: 15vh 8vw;
+    background-color: #000000;
+    position: relative;
+    z-index: 10;
+}
+
+.interactive-experience-reverse .split-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8vw;
+    flex-direction: row-reverse;
+}
+
+.text-side { flex: 1; }
+
+.spline-side {
+    flex: 1;
+    height: 500px;
+    position: relative;
+}
+
+.spline-wrapper {
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    border: none; /* Borda removida */
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Esconde o logo do Spline na seção 6 e em outros wrappers */
+.spline-wrapper spline-viewer,
+.spline-wrapper iframe {
+    width: 100% !important;
+    height: calc(100% + 60px) !important;
+    margin-bottom: -60px;
+    border: none;
+}
+
+.spline-placeholder-mini {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #333;
+}
+
+.spline-placeholder-mini i   { font-size: 3rem; }
+.spline-placeholder-mini span { font-size: 0.8rem; letter-spacing: 2px; }
+
+/* SEÇÃO 3 — PROJETOS CONCEITUAIS (ASSIMÉTRICO PREMIUM) */
+.projects {
+    padding: 15vh 0;
+    background: #000;
+    position: relative;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: repeat(2, 360px);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    display: block; /* É um <a>, então block para preencher */
+    text-decoration: none;
+    background: #080808;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borda suave */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    isolation: isolate;
+}
+
+.project-large {
+    grid-row: 1 / -1; /* Ocupa as duas linhas */
+    height: 100%;
+}
+
+.project-small {
+    /* Auto posiciona nas linhas restantes (coluna 2, linha 1 e 2) */
+    height: 100%;
+}
+
+.project-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.project-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+/* Base overlay: Dark fade in the background so text is readable */
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.1) 0%,
+        rgba(0,0,0,0.5) 60%,
+        rgba(0,0,0,0.85) 100%
+    );
+    z-index: 2;
+    transition: background 0.5s ease;
+}
+
+.project-content {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 2.5rem;
+}
+
+/* Top Area (Tag) */
+.project-top {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+}
+
+/* Bottom Area (Text + Button) */
+.project-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    transform: translateY(0);
+}
+
+.project-text h3 {
+    font-size: clamp(1.6rem, 2.2vw, 2.5rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    transition: transform 0.5s ease;
+}
+
+.project-text p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* "Ver projeto" Button Wrapper */
+.project-btn-wrapper {
+    overflow: hidden;
+    padding-left: 1rem;
+}
+
+.project-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
+    transform: translateX(120%);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    white-space: nowrap;
+}
+
+.project-btn i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Interações HOVER */
+.project-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.project-card:hover .project-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.3) 0%,
+        rgba(0,0,0,0.6) 50%,
+        rgba(0,0,0,0.95) 100%
+    ); /* Overlay escurece suavemente */
+}
+
+.project-card:hover .project-btn {
+    transform: translateX(0); /* Surge botão "Ver projeto ->" */
+}
+
+.project-card:hover .project-btn i {
+    transform: translateX(4px);
+    color: #fff;
+}
+
+.project-card:hover .project-text p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive Ajustes */
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    .project-large, .project-small {
+        height: 60vh;
+        min-height: 380px;
+    }
+}
+@media (max-width: 600px) {
+    .project-content {
+        padding: 2rem 1.5rem;
+    }
+    .project-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .project-btn-wrapper {
+        padding-left: 0;
+    }
+    .project-btn {
+        transform: translateX(0); /* Sempre visível no mobile já que não tem hover */
+        opacity: 0.7;
+    }
+}
+
+/* SEÇÃO 4 — DIFERENCIAIS */
+.features {
+    padding: 15vh 0;
+    background: #000;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.feature-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.feature-item p {
+    color: #777;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+/* SEÇÃO 5 — PROCESSO */
+.process {
+    padding: 15vh 0;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    max-width: 1000px;
+    margin: 4rem auto 0;
+}
+
+.process-line {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 1;
+}
+
+.process-line-active {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.15));
+    z-index: 2;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    background: #000;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.step:focus-visible {
+    outline: none;
+}
+
+.step:hover {
+    transform: translateY(-4px);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #2a2a2a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 0 auto 1.5rem;
+    background: #050505;
+    color: #555;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.step-number::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.step:hover .step-number {
+    border-color: #555;
+    color: #aaa;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+.step.active .step-number {
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
+    background: #0d0d0d;
+    transform: scale(1.12);
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.18),
+        0 0 40px rgba(255, 255, 255, 0.06),
+        inset 0 0 12px rgba(255, 255, 255, 0.04);
+}
+
+.step.active .step-number::after {
+    opacity: 1;
+}
+
+.step h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    transition: color 0.4s ease;
+    letter-spacing: 0.02em;
+}
+
+.step:hover h4 {
+    color: #888;
+}
+
+.step.active h4 {
+    color: #e0e0e0;
+}
+
+/* Painel Dinâmico */
+.process-panel {
+    max-width: 1000px;
+    margin: 3rem auto 0;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease,
+        margin 0.5s ease;
+}
+
+.process-panel.is-open {
+    height: 160px;
+    opacity: 1;
+    pointer-events: auto;
+    margin-top: 3rem;
+}
+
+.process-panel-inner {
+    background: #0e0e0e;
+    border: 1px solid #1e1e1e;
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.process-panel-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+}
+
+.panel-step-tag {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.06);
+    min-width: 90px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    transition: color 0.5s ease;
+    user-select: none;
+}
+
+.panel-text-group {
+    flex: 1;
+}
+
+.panel-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+.panel-description {
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+.panel-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #222;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.panel-icon i {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Animação fade+slide do conteúdo interno do painel */
+@keyframes panelContentIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.panel-content-animate {
+    animation: panelContentIn 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* SEÇÃO 7 — CTA FINAL */
+.cta-final {
+    padding: 20vh 0;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+
+.cta-subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.btn-premium {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0);
+}
+
+.btn-premium:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+/* FOOTER */
+.main-footer {
+    padding: 5rem 8vw;
+    background: #030303;
+    border-top: 1px solid #111;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-footer {
+    height: 40px;
+    margin-right: 1.5rem;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+}
+
+.footer-text {
+    color: #444;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: #777;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-social a {
+    color: #777;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #fff;
+}
+
+/* Animação Global Reveal */
+.anim-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@media (max-width: 1000px) {
+    .split-container, .services-grid, .projects-grid, .features-grid {
+        grid-template-columns: 1fr;
+        flex-direction: column !important;
+    }
+    
+    .spline-side {
+        width: 100%;
+        height: 350px;
+    }
+    
+    .process-steps {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .process-line {
+        left: 30px;
+        top: 0;
+        width: 1px;
+        height: 100%;
+    }
+
+    .process-line-active {
+        left: 30px;
+        top: 0;
+        width: 1px !important;
+        height: 0%;
+        background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.15));
+        transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .step {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding-left: 0;
+        background: transparent;
+    }
+    
+    .step-number {
+        margin: 0 1.5rem 0 0;
+        flex-shrink: 0;
+    }
+
+    .process-panel.is-open {
+        height: auto;
+        min-height: 200px;
+    }
+
+    .process-panel-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    .panel-step-tag {
+        font-size: 2.5rem;
+        min-width: auto;
+    }
+
+    .panel-icon {
+        display: none;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+}
+
