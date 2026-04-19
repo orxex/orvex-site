@@ -1192,6 +1192,17 @@ spline-viewer {
    RESPONSIVIDADE MOBILE (max-width: 768px)
 ══════════════════════════════════════════════ */
 @media (max-width: 768px) {
+    /* Desativa animações pesadas e define visibilidade final estática */
+    .top-logo, .social-links a, .brand-tagline, .service-card, .project-card, .feature-item, .anim-reveal, .xp-eyebrow, .xp-title-line, .xp-subtitle, .xp-cta {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Remove totalmente o Spline para alta performance no mobile */
+    .spline-container, .spline-side {
+        display: none !important;
+    }
+
     /* 1. Layout geral e espaçamentos */
     .container {
         padding: 0 20px;

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ORVEX - Agência de design e tecnologia premium. Transformamos marcas com sites interativos, interfaces incríveis e alta performance.">
+    <meta name="theme-color" content="#030303">
     <title>ORVEX | Inovação e Performance</title>
     
     <!-- CSS -->
@@ -25,7 +27,8 @@
 </head>
 <body>
 
-    <section class="hero">
+    <main id="main">
+        <section class="hero">
         <!-- Logo Top Left -->
         <div class="top-logo">
             <img src="cropped-logo.png" alt="Logo ORVEX" class="logo-icon-small">
@@ -41,6 +44,7 @@
             </div>
             
             <p class="brand-tagline anim-main">Onde inovação encontra performance.</p>
+            <a href="#contact" class="btn-premium hero-cta anim-main" style="margin-top: 2rem;">Vamos conversar</a>
         </div>
 
         <!-- Ícones Sociais (Bottom Left) -->
@@ -51,8 +55,8 @@
         </div>
 
         <!-- Spline 3D Area (Right) -->
-        <div class="spline-container anim-spline" style="pointer-events: none;">
-            <spline-viewer url="https://prod.spline.design/WbdchWKXqraO0ap3/scene.splinecode" style="transform: translateZ(0);"></spline-viewer>
+        <div class="spline-container anim-spline" id="spline-container-1" style="pointer-events: none;">
+            <!-- Spline injected via JS on desktop only -->
         </div>
     </section>
     
@@ -282,12 +286,7 @@
         <div class="split-container">
             <div class="spline-side anim-reveal">
                 <div class="spline-wrapper" id="spline-container-2" style="position:relative;">
-                    <iframe
-                        src="https://my.spline.design/robotarm-qtRdcEV6VaeDtXNzKLIQSPP8/"
-                        frameborder="0"
-                        allow="autoplay"
-                        style="width:100%;height:100%;position:absolute;top:0;left:0;border:none;display:block;">
-                    </iframe>
+                    <!-- Spline iframe injected via JS on desktop only -->
                 </div>
             </div>
             <div class="text-side anim-reveal">
@@ -305,6 +304,7 @@
             <a href="https://wa.me/5515997492384" target="_blank" class="btn-premium">Solicitar orçamento</a>
         </div>
     </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="main-footer">

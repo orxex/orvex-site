@@ -1,102 +1,84 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ─── HERO ANIMATIONS ──────────────────────────────────────────────────────
-    gsap.set(".top-logo",       { y: -20, opacity: 0 });
-    gsap.set(".logo-icon-image",{ opacity: 0, x: -20 });
-    gsap.set(".brand-name",     { opacity: 0, x: -20 });
-    gsap.set(".brand-tagline",  { opacity: 0, y: 15 });
-    gsap.set(".anim-social",    { x: -20, opacity: 0 });
-    gsap.set(".anim-spline",    { opacity: 0 });
-
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-    tl.to(".top-logo", { y: 0, opacity: 1, duration: 0.8 })
-      .to([".logo-icon-image", ".brand-name"], { x: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, "-=1.0")
-      .to(".brand-tagline", { y: 0, opacity: 1, duration: 0.8 }, "-=1.0")
-      .to(".anim-social", { x: 0, opacity: 1, duration: 0.6, stagger: 0.1 }, "-=0.8")
-      .to(".anim-spline", { opacity: 1, duration: 1.2 }, "-=0.5");
-
-    // ─── SCROLL REVEAL ────────────────────────────────────────────────────────
     gsap.registerPlugin(ScrollTrigger);
+    const mm = gsap.matchMedia();
 
-    // Revelação genérica (anim-reveal) — exclui .step (gerenciados pelo animateGrid)
-    gsap.utils.toArray('.anim-reveal').forEach(el => {
-        if (el.classList.contains('step')) return; // skip: animado pelo animateGrid
-        gsap.to(el, {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: el,
-                start: "top 85%",
-                toggleActions: "play none none none"
-            }
+    mm.add("(min-width: 769px)", () => {
+        // ─── SPLINE INJECTION (DESKTOP ONLY) ──────────────────────────────────────
+        const splineHero = document.getElementById('spline-container-1');
+        if (splineHero && !splineHero.hasChildNodes()) {
+            splineHero.innerHTML = '<spline-viewer url="./scene.splinecode" style="transform: translateZ(0);"></spline-viewer>';
+        }
+        
+        const splineExp = document.getElementById('spline-container-2');
+        if (splineExp && !splineExp.hasChildNodes()) {
+            splineExp.innerHTML = '<iframe src="https://my.spline.design/robotarm-qtRdcEV6VaeDtXNzKLIQSPP8/" frameborder="0" allow="autoplay" loading="lazy" style="width:100%;height:100%;position:absolute;top:0;left:0;border:none;display:block;"></iframe>';
+        }
+
+        // ─── HERO ANIMATIONS ──────────────────────────────────────────────────────
+        gsap.set(".top-logo",       { y: -20, opacity: 0 });
+        gsap.set(".logo-icon-image",{ opacity: 0, x: -20 });
+        gsap.set(".brand-name",     { opacity: 0, x: -20 });
+        gsap.set(".brand-tagline",  { opacity: 0, y: 15 });
+        gsap.set(".hero-cta",       { opacity: 0, y: 15 });
+        gsap.set(".anim-social",    { x: -20, opacity: 0 });
+        gsap.set(".anim-spline",    { opacity: 0 });
+
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        tl.to(".top-logo", { y: 0, opacity: 1, duration: 0.8 })
+          .to([".logo-icon-image", ".brand-name"], { x: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, "-=1.0")
+          .to([".brand-tagline", ".hero-cta"], { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, "-=1.0")
+          .to(".anim-social", { x: 0, opacity: 1, duration: 0.6, stagger: 0.1 }, "-=0.8")
+          .to(".anim-spline", { opacity: 1, duration: 1.2 }, "-=0.5");
+
+        // ─── SCROLL REVEAL ────────────────────────────────────────────────────────
+        gsap.utils.toArray('.anim-reveal').forEach(el => {
+            if (el.classList.contains('step')) return; 
+            gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" } });
         });
+
+        function animateGrid(cssSelector, onComplete) {
+            const elements = document.querySelectorAll(cssSelector);
+            if (!elements.length) return;
+            gsap.to(elements, { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: elements[0], start: "top 80%", toggleActions: "play none none none" }, onComplete: onComplete || null });
+        }
+
+        animateGrid(".service-card");
+        animateGrid(".project-card");
+        animateGrid(".feature-item");
+        animateGrid(".step", () => {
+            const firstStep = document.querySelector('.step[data-step="1"]');
+            if (firstStep && typeof activateStep === 'function') activateStep(firstStep);
+        });
+
+        // ─── SEÇÃO XP — EXPERIÊNCIAS QUE IMPRESSIONAM ────────────────────────────
+        const xpSection = document.querySelector('.xp-section');
+        if (xpSection) {
+            const xpTl = gsap.timeline({ scrollTrigger: { trigger: xpSection, start: "top 72%", toggleActions: "play none none none" } });
+            xpTl.to('.xp-eyebrow', { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" })
+                .to('.xp-line-white', { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.4")
+                .to('.xp-line-muted', { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.5")
+                .to('.xp-subtitle', { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.45")
+                .to('.xp-cta', { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, "-=0.45");
+        }
+
+        return () => {
+            if (splineHero) splineHero.innerHTML = '';
+            if (splineExp) splineExp.innerHTML = '';
+        };
     });
 
-    // Stagger para grids — usa querySelectorAll para obter NodeList real
-    function animateGrid(cssSelector, onComplete) {
-        const elements = document.querySelectorAll(cssSelector);
-        if (!elements.length) return;
+    mm.add("(max-width: 768px)", () => {
+        // Nenhuma animação GSAP. Mobile é 100% estático para super performance.
+        // Ativamos o passo 1 do processo "Como Trabalhamos" após o carregamento inicial.
+        setTimeout(() => {
+            const firstStep = document.querySelector('.step[data-step="1"]');
+            if (firstStep && typeof activateStep === 'function') activateStep(firstStep);
+        }, 500);
 
-        gsap.to(elements, {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: elements[0],
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            onComplete: onComplete || null
-        });
-    }
-
-    animateGrid(".service-card");
-    animateGrid(".project-card");
-    animateGrid(".feature-item");
-    // Steps: abre o step 1 automaticamente após o stagger terminar
-    animateGrid(".step", () => {
-        const firstStep = document.querySelector('.step[data-step="1"]');
-        if (firstStep) activateStep(firstStep);
+        return () => {};
     });
-
-    // ─── SEÇÃO XP — EXPERIÊNCIAS QUE IMPRESSIONAM ────────────────────────────
-    const xpSection = document.querySelector('.xp-section');
-    if (xpSection) {
-        const xpTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: xpSection,
-                start: "top 72%",
-                toggleActions: "play none none none"
-            }
-        });
-
-        xpTl
-            // Eyebrow
-            .to('.xp-eyebrow', {
-                opacity: 1, y: 0, duration: 0.7, ease: "power3.out"
-            })
-            // Título linha 1
-            .to('.xp-line-white', {
-                opacity: 1, y: 0, duration: 0.7, ease: "power3.out"
-            }, "-=0.4")
-            // Título linha 2
-            .to('.xp-line-muted', {
-                opacity: 1, y: 0, duration: 0.7, ease: "power3.out"
-            }, "-=0.5")
-            // Subtítulo
-            .to('.xp-subtitle', {
-                opacity: 1, y: 0, duration: 0.7, ease: "power3.out"
-            }, "-=0.45")
-            // CTA
-            .to('.xp-cta', {
-                opacity: 1, y: 0, duration: 0.6, ease: "power3.out"
-            }, "-=0.45");
-    }
 
     // ─── PROCESSO INTERATIVO ──────────────────────────────────────────────────
     const stepsData = {
